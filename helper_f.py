@@ -7,17 +7,18 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 import seaborn as sns
 
-def plot_freq(columns, label, df):
+def plot_freq(columns, label, df, ylabel):
 	for column in columns:
 		freq_table = pd.crosstab(index = df[column], columns = df[label], normalize = 'index')
 		plt.figure()
 		plt.bar(x = freq_table.index, height = freq_table[1])
 		plt.xlabel(column)
+		plt.ylabel(ylabel)
 
 def plot_continuous(columns, label, df):
 	for column in columns:
 		print(column)
-		hist = df[[column, label]].hist(by = column, bins = 30)
+		hist = df[[column, label]].hist(by = label, bins = 30)
 		plt.show()
 
 def plot_classifier(X,y):
