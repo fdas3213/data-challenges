@@ -23,6 +23,13 @@ def plot_continuous(columns, label, df):
 		hist = df[[column, label]].hist(by = label, bins = 30)
 		plt.show()
 
+def plot_mean_value(columns, label, df):
+	for column in columns:
+		plt.figure()
+		new_df = df.groupby(label)[column].mean()
+		new_df.plot.bar()
+		plt.ylabel("average " + column)
+
 def plot_feature_importance(df, label, clf, degree):
 	feature_columns = df.loc[:, df.columns != label].columns.values
 	imp_df = pd.DataFrame({"features":feature_columns, "importance": clf.feature_importances_})
