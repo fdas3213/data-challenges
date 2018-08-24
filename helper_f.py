@@ -103,4 +103,4 @@ def plot_classifier(X,y):
 	plt.title('Classifier Accuracy')
 
 	sns.set_color_codes('muted')
-	sns.barplit(x = 'Accuracy', y = 'Classifier', data = log, color = 'b')
+	sns.barplot(x = 'Accuracy', y = 'Classifier', data = log, color = 'b')
