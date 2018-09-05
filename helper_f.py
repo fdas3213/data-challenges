@@ -16,7 +16,7 @@ def plot_freq(columns, label, df, ylabel, rotation = False):
 	for column in columns:
 		freq_table = pd.crosstab(index = df[column], columns = df[label], normalize = 'index')
 		plt.figure()
-		freq_table.plot.bar()
+		freq_table.plot(kind = 'bar')
 		plt.xlabel(column)
 		plt.ylabel(ylabel)
 		if rotation:
